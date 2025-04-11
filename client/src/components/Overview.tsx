@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { DayData, highlights } from '@/data/itineraryData';
 import LocationCard from './LocationCard';
+import us from '../assets/us.jpeg'
 
 interface OverviewProps {
   days: DayData[];
@@ -86,7 +87,7 @@ export default function Overview({ days, onExportPDF, onViewDay }: OverviewProps
         
       <h2 className="font-mont text-3xl text-center font-bold text-blue-900 mb-10">The Squad</h2>
              <img 
-                  src="\src\assets\us.jpeg" 
+                  src={us}
                   alt="Kerala Map representation" 
                   className="w-full h-full rounded-full object-cover" 
                 />
