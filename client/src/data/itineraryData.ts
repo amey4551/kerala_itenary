@@ -1,3 +1,4 @@
+
 // Types for our itinerary data
 export interface Location {
   id: number;
@@ -23,6 +24,7 @@ export interface DaySummary {
 export interface DayData {
   id: string;
   number: number;
+  date: string;
   title: string;
   subtitle: string;
   description: string;
@@ -38,7 +40,6 @@ export interface DayData {
   count: string;
 }
 
-// Full itinerary data
 export const itineraryData: {
   days: DayData[];
 } = {
@@ -46,348 +47,648 @@ export const itineraryData: {
     {
       id: "day1",
       number: 1,
-      title: "Mattupetty Route",
-      subtitle: "Easy circuit with scenic spots and an early finish",
-      description: "An easy circuit with early finish - perfect for your first day. Visit Top Station, Echo Point and Mattupetty Dam.",
-      image: "https://www.keralahydeltourism.com/images/news/Sun_moon_valley.jpg",
+      date: "2025-04-30",
+      title: "Journey to Ernakulam & Alleppey",
+      subtitle: "Train journey and evening in Alleppey",
+      description: "Travel from Madgaon to Ernakulam and transfer to Alleppey",
+      image: "",
+      priorityLocations: [
+        { name: "Ernakulam Junction Arrival" },
+        { name: "Transfer to Alleppey" },
+      ],
+      routePlan: "Madgaon → Ernakulam → Alleppey",
+      locations: [
+        {
+          id: 1,
+          name: "Departure from Madgaon",
+          time: "5:30 AM",
+          description: "Board Ernakulam Jn. Duronto Express (12223)",
+          image: "",
+          isPriority: true,
+          travelTip: "Ensure to carry snacks and water for the journey",
+        },
+        {
+          id: 2,
+          name: "Arrival at Ernakulam",
+          time: "7:00 PM",
+          description: "Arrive at Ernakulam Junction",
+          image: "",
+          isPriority: true,
+        },
+        {
+          id: 3,
+          name: "Transfer to Alleppey",
+          time: "8:00 PM",
+          description: "55KM journey to Alleppey",
+          image: "",
+          isPriority: true,
+          travelTip: "Consider having dinner at Ernakulam before departure",
+        },
+      ],
+      summary: {
+        title: "Day 1 Summary",
+        points: [
+          "13.5 hours train journey",
+          "Evening arrival at Ernakulam",
+          "Night transfer to Alleppey",
+          "Prepare for temple visits next day",
+        ],
+      },
+      duration: "14-15 hours",
+      count: "3 main locations",
+    },
+    {
+      id: "day2",
+      number: 2,
+      date: "2025-05-01",
+      title: "Alleppey Exploration",
+      subtitle: "Temples and Backwaters",
+      description: "Experience Alleppey's spiritual and natural beauty",
+      image: "",
+      priorityLocations: [
+        { name: "Mullakkal Rajarajeswari Temple" },
+        { name: "Ambalapuzha Sri Krishna Temple" },
+        { name: "Mannarasala Sree Nagaraja Temple" },
+        { name: "Alleppey Backwater Sanctuary" },
+      ],
+      routePlan: "Temple Circuit → Backwaters → Munnar",
+      locations: [
+        {
+          id: 1,
+          name: "Mullakkal Rajarajeswari Temple",
+          time: "Morning",
+          description: "Start the day with divine blessings",
+          image: "",
+          isPriority: true,
+        },
+        {
+          id: 2,
+          name: "Ambalapuzha Sri Krishna Temple",
+          time: "Mid-morning",
+          description: "14 km from Mullakkal Temple",
+          image: "",
+          isPriority: true,
+          travelTip: "Try the famous temple prasadam",
+        },
+        {
+          id: 3,
+          name: "Mannarasala Sree Nagaraja Temple",
+          time: "Afternoon",
+          description: "32 km journey",
+          image: "",
+          isPriority: true,
+        },
+        {
+          id: 4,
+          name: "Lunch Break",
+          time: "Afternoon",
+          description: "Local Kerala cuisine",
+          image: "",
+          isPriority: false,
+        },
+        {
+          id: 5,
+          name: "Alleppey Backwater Sanctuary",
+          time: "Evening",
+          description: "Shikara Ride experience",
+          image: "",
+          isPriority: true,
+          travelTip: "Best time for photography during sunset",
+        },
+        {
+          id: 6,
+          name: "Travel to Munnar",
+          time: "Night",
+          description: "Night journey to hill station",
+          image: "",
+          isPriority: true,
+        },
+      ],
+      summary: {
+        title: "Day 2 Summary",
+        points: [
+          "Three significant temples",
+          "Traditional Kerala backwaters",
+          "Evening departure to Munnar",
+          "Cultural and natural experiences",
+        ],
+      },
+      duration: "12-14 hours",
+      count: "4 main locations",
+    },
+    {
+      id: "day3",
+      number: 3,
+      date: "2025-05-02",
+      title: "Munnar Day 1",
+      subtitle: "Scenic Viewpoints & Nature",
+      description: "Explore the most scenic locations in Munnar",
+      image: "",
       priorityLocations: [
         { name: "Top Station" },
         { name: "Echo Point" },
         { name: "Mattupetty Dam" },
         { name: "Carmelagiri Elephant Park", isOptional: true },
-        { name: "Tea tasting at a local estate" }
+        { name: "Botanical Garden" },
       ],
-      routePlan: "Clockwise loop from Munnar → Top Station → Echo → Mattupetty → Carmelagiri → back to Munnar",
+      routePlan: "Top Station → Echo Point → Mattupetty Dam → Activities",
       locations: [
         {
           id: 1,
-          name: "Leave hotel after breakfast",
-          time: "8:00 AM - Departure",
-          description: "Begin your day with a hearty meal as lunch options near Top Station are limited.",
+          name: "Depart Hotel",
+          time: "7:30 AM",
+          description: "Start your day early to avoid crowds",
           image: "",
           isPriority: false,
-          travelTip: "Pack snacks, water, and wear layers as temperatures can vary throughout the day."
         },
         {
           id: 2,
           name: "Top Station",
-          time: "9:00 AM - Top Station",
-          description: "Visit this panoramic viewpoint early to beat the crowds and enjoy clear morning views before the haze sets in.",
-          image: "https://s7ap1.scene7.com/is/image/incredibleindia/top-station-munnar-kerala-1-attr-hero?qlt=82&ts=1726672844426",
+          time: "8:00 AM",
+          description: "Highest point in Munnar offering panoramic views",
+          image: "",
           isPriority: true,
-          details: [
-            "Amazing panoramic shots of valleys and tea estates",
-            "On clear days, view extends to Tamil Nadu plains",
-            "45-60 minutes recommended stay"
-          ],
-          coordinates: {
-            lat: 10.1307,
-            lng: 77.2422
-          }
+          travelTip: "Timing depends on hotel location",
         },
         {
           id: 3,
           name: "Echo Point",
-          time: "10:30 AM - Echo Point",
-          description: "A quick, enjoyable stop where sound echoes across the valley. Just a 20-minute drive from Top Station.",
-          image: "https://munnartourism.co.in/images//tourist-places/echo-point-munnar/echo-point-munnar-tourism-entry-ticket-boating-price.jpg",
+          time: "10:00 AM",
+          description: "17 km scenic spot with natural echo phenomenon",
+          image: "",
           isPriority: true,
-          details: [
-            "Try shouting across the lake to hear the echo",
-            "Beautiful lakeside views and photo opportunities",
-            "30 minutes is sufficient for this stop"
-          ],
-          coordinates: {
-            lat: 10.0579,
-            lng: 77.1052
-          }
         },
         {
           id: 4,
           name: "Mattupetty Dam",
-          time: "11:15 AM - Mattupetty Dam",
-          description: "Visit this serene dam before the midday crowds arrive. Walking around the dam provides beautiful views of surrounding landscapes.",
-          image: "https://dreamlandmunnar.in/wp-content/uploads/2024/02/eZkZhdwABk_1600-ezgif.com-jpg-to-webp-converter.webp",
+          time: "11:30 AM",
+          description: "Beautiful dam and lake surrounded by tea gardens",
+          image: "",
           isPriority: true,
-          details: [
-            "Optional boating activity available (30 min)",
-            "Great landscape photography opportunities",
-            "45-60 minutes recommended stay"
-          ],
-          coordinates: {
-            lat: 10.1012,
-            lng: 77.1124
-          }
         },
         {
           id: 5,
-          name: "Lunch near Mattupetty",
-          time: "12:30 PM - Lunch Break",
-          description: "Enjoy lunch at one of the restaurants near Mattupetty or head back toward Munnar for more dining options.",
+          name: "Lunch Break",
+          time: "1:00 PM",
+          description: "Local Kerala cuisine",
           image: "",
           isPriority: false,
-          travelTip: "Look for restaurants serving authentic Kerala cuisine - try local specialties like Meen Curry (fish curry) or Kerala-style chicken dishes."
         },
         {
           id: 6,
           name: "Carmelagiri Elephant Park",
-          time: "2:00 PM - Carmelagiri Elephant Park (Optional)",
-          description: "An optional stop where you can see elephants and even take an elephant ride if interested.",
-          image: "https://www.ourmunnartrip.com/upload_pic/destinations/gallery/carmelgiri-elephant-park69.webp",
-          isPriority: false,
+          time: "3:30 PM",
+          description: "Open 9:00 AM to 5:00 PM",
+          image: "",
+          isPriority: true,
           isOptional: true,
-          details: [
-            "Elephant rides available (additional cost)",
-            "Can be skipped if not interested in animal activities",
-            "30-45 minutes if you choose to stop"
-          ],
-          coordinates: {
-            lat: 10.0845,
-            lng: 77.0632
-          }
+          travelTip: "25 km, ~45 mins travel",
         },
         {
           id: 7,
-          name: "Tea Garden Tasting",
-          time: "3:00 PM - Tea Tasting",
-          description: "Visit a non-commercial tea garden like Rose Garden Estate for a more authentic tea tasting experience.",
-          image: "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/hwx7kejyxrupagsx4xt4/Hangzhou%20Longjing%20Tea%20Garden%205km%20light%20hike%3A%20Jiuxi%20Smoky%20Trees%20%2B%20Jiuxi%20Waterfall%20%2B%20Longjing%20Village%20Tea%20Picking%20%2B%20Tea%20Stir-frying%20%2B%20Tea%20Tasting%20%2B%20Qianlong%2018%20Imperial%20Tea%20Trees%20%2B%20Professional%20Tour%20Guide%20Accompanying%20and%20Explanating%20the%20Whole%20Course.jpg",
+          name: "Botanical Garden",
+          time: "4:30 PM",
+          description: "Open 9:00 AM to 6:30 PM",
+          image: "",
           isPriority: true,
-          details: [
-            "Skip the full factory tour - focus on tasting",
-            "Beautiful views of surrounding tea gardens",
-            "Opportunity to purchase authentic Munnar tea"
-          ],
-          coordinates: {
-            lat: 10.0893,
-            lng: 77.0593
-          }
+          travelTip: "5 km, ~15 mins travel",
         },
         {
           id: 8,
-          name: "Early Wrap-up",
-          time: "4:00 PM - Return to Hotel",
-          description: "Head back to your accommodation to relax and prepare for an early start tomorrow morning.",
+          name: "Return to Hotel",
+          time: "6:30 PM",
+          description: "Evening at leisure",
           image: "",
           isPriority: false,
-          travelTip: "Tomorrow requires a very early start (4:30 AM) for Kolukkumalai sunrise. Pack what you need tonight and get some rest."
-        }
+        },
       ],
       summary: {
-        title: "Day 1 Summary",
+        title: "Day 3 Highlights",
         points: [
-          "Easy scenic drive with well-paved roads",
-          "No long walks or hikes - comfortable for all travelers",
-          "Approximately 6-7 hours total including all stops",
-          "Early wrap-up (4-5 PM) so you can rest for Day 2's early sunrise"
-        ]
+          "Early morning scenic views",
+          "Visit 3 major attractions",
+          "Optional wildlife encounter",
+          "Evening nature walk",
+        ],
       },
-      duration: "6-7 hours total",
-      count: "4 locations"
+      duration: "11 hours",
+      count: "5 main locations",
     },
     {
-      id: "day2",
-      number: 2,
-      title: "Kolukkumalai & Western Munnar",
-      subtitle: "Stunning sunrise and western side exploration",
-      description: "Experience the unforgettable sunrise at Kolukkumalai followed by Gap Road, Lockhart gardens and more.",
-      image: "https://www.tamilnadutourism.tn.gov.in/img/pages/large-desktop/kolukkumalai-1657465095_d2642e149fe309ce153d.webp",
+      id: "day4",
+      number: 4,
+      date: "2025-05-03",
+      title: "Munnar Day 2",
+      subtitle: "Sunrise Adventure & Tea Gardens",
+      description: "Early morning trek and tea plantation visits",
+      image: "",
       priorityLocations: [
-        { name: "Kolukkumalai Peak (Sunrise)" },
-        { name: "Gap Road" },
+        { name: "Kolukkumalai Sunrise Point" },
+        { name: "Ariyankal Dam" },
+        { name: "Gap Road Viewpoint" },
         { name: "Lockhart Tea Garden" },
-        { name: "Ariankal Dam" },
-        { name: "Government Botanical Garden" },
-        { name: "Chokramudi Peak", isOptional: true }
       ],
+      routePlan: "Sunrise Trek → Dam Visit → Tea Gardens",
       locations: [
         {
           id: 1,
-          name: "Leave hotel for Kolukkumalai Sunrise",
-          time: "4:30 AM - Early Departure",
-          description: "The early wake-up is absolutely worth it for this spectacular experience.",
+          name: "Jeep Ride to Kolukkumalai",
+          time: "4:00 AM",
+          description: "10 km, ~1 hr by jeep",
           image: "",
           isPriority: true,
-          travelTip: "Jeep required from Suryanelli (self-drive not possible). Pre-book jeep in advance (₹2000-₹2500). Wear warm layers - it gets cold at this altitude in the morning."
+          travelTip: "Wear warm clothes and carry water",
         },
         {
           id: 2,
-          name: "Kolukkumalai Peak",
-          time: "6:00 AM - Kolukkumalai Peak Sunrise",
-          description: "Experience one of the most breathtaking sunrises in South India. The 1.5-hour jeep ride is bumpy but the reward is worth it.",
-          image: "https://etravelfly.com/wp-content/uploads/2018/11/kolukkumalai-10.jpg",
+          name: "Trek & Photography",
+          time: "6:00 AM",
+          description: "1.5-2 hrs trek",
+          image: "",
           isPriority: true,
-          details: [
-            "World's highest tea plantation views",
-            "Stunning views of clouds, hills and valleys",
-            "Visit the tea factory (opens around 8 AM)",
-            "Allow 2 hours at the peak"
-          ],
-          coordinates: {
-            lat: 10.0176,
-            lng: 77.2483
-          }
         },
         {
           id: 3,
-          name: "Return from Kolukkumalai",
-          time: "9:00 AM - Return & Breakfast",
-          description: "Return to Munnar town, have breakfast, and freshen up before continuing with the day's activities.",
+          name: "Return & Breakfast",
+          time: "11:30 AM",
+          description: "Return by boat (to be confirmed)",
           image: "",
-          isPriority: false,
-          details: [
-            "Return to your hotel for breakfast and freshening up",
-            "Or have breakfast at a local restaurant in Suryanelli/Munnar"
-          ]
+          isPriority: true,
         },
         {
           id: 4,
-          name: "Gap Road Viewpoint",
-          time: "11:30 AM - Gap Road Viewpoint",
-          description: "A scenic route on the way toward Lockhart area with beautiful views of valleys and tea plantations.",
-          image: "https://media1.thrillophilia.com/filestore/3xg0qj9vbjsxt0ixzfc66kn0t105_image%20(2).jpg?w=400&dpr=2",
+          name: "Ariyankal Dam",
+          time: "12:30 PM",
+          description: "14 km, ~30 mins travel",
+          image: "",
           isPriority: true,
-          details: [
-            "Multiple viewpoints along the road",
-            "Perfect for landscape photography",
-            "Quick stops along the drive (20-30 mins total)"
-          ],
-          coordinates: {
-            lat: 10.0812,
-            lng: 77.0365
-          }
         },
         {
           id: 5,
-          name: "Ariyankal Dam",
-          time: "12:30 PM - Ariyankal Dam",
-          description: "A hidden gem away from tourist crowds. This peaceful spot offers beautiful views of the dam and surrounding landscape.",
-          image: "https://munnarinfo.in/uploads/profile/1531045131bgpcmjif441010.jpg",
-          isPriority: true,
-          details: [
-            "Not crowded - peaceful atmosphere",
-            "Beautiful reflections in the water",
-            "Allow 30 minutes to 1 hour"
-          ],
-          coordinates: {
-            lat: 10.0931,
-            lng: 77.0193
-          }
+          name: "Lunch Break",
+          time: "1:30 PM",
+          description: "Local cuisine",
+          image: "",
+          isPriority: false,
         },
         {
           id: 6,
-          name: "Lunch in Bison Valley or Munnar",
-          time: "1:30 PM - Lunch Break",
-          description: "Enjoy lunch at a local restaurant before continuing with the afternoon activities.",
+          name: "Gap Road Viewpoint",
+          time: "3:00 PM",
+          description: "8.7 km, ~20 mins travel",
           image: "",
-          isPriority: false
+          isPriority: true,
         },
         {
           id: 7,
           name: "Lockhart Tea Garden",
-          time: "3:00 PM - Lockhart Tea Garden",
-          description: "Skip the full factory tour (you've already done Kolukkumalai) and focus on enjoying the scenic views of this beautiful tea estate.",
-          image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/eb/2e/0b/lockhart-tea-factory.jpg?w=1200&h=-1&s=1",
+          time: "4:30 PM",
+          description: "3 km, ~10 mins travel",
+          image: "",
           isPriority: true,
-          details: [
-            "Walk through the tea gardens",
-            "Enjoy breathtaking viewpoints",
-            "Allow 1 hour for exploring"
-          ],
-          coordinates: {
-            lat: 10.0773,
-            lng: 77.0419
-          }
+        },
+      ],
+      summary: {
+        title: "Day 4 Highlights",
+        points: [
+          "Early morning sunrise trek",
+          "Boat return journey",
+          "Scenic viewpoints",
+          "Tea garden exploration",
+        ],
+      },
+      duration: "12-13 hours",
+      count: "4 main locations",
+    },
+    {
+      id: "day5",
+      number: 5,
+      date: "2025-05-04",
+      title: "Munnar Day 3 & Travel to Kochi",
+      subtitle: "Adventure & Chocolate Factory",
+      description: "Final day in Munnar and evening transfer to Kochi",
+      image: "",
+      priorityLocations: [
+        { name: "Adventure Park" },
+        { name: "Macofa Chocolate Factory" },
+        { name: "Transfer to Kochi" },
+      ],
+      routePlan: "Adventure Activities → Chocolate Factory → Kochi",
+      locations: [
+        {
+          id: 1,
+          name: "Adventure Park",
+          time: "9:00 AM",
+          description: "Morning adventure activities",
+          image: "",
+          isPriority: true,
+        },
+        {
+          id: 2,
+          name: "Lunch Break",
+          time: "1:30 PM",
+          description: "Local cuisine",
+          image: "",
+          isPriority: false,
+        },
+        {
+          id: 3,
+          name: "Macofa Chocolate Factory",
+          time: "3:30 PM",
+          description: "Chocolate making and shopping",
+          image: "",
+          isPriority: true,
+        },
+        {
+          id: 4,
+          name: "Travel to Kochi",
+          time: "5:00 PM",
+          description: "151 km, ~4.5-5 hrs journey",
+          image: "",
+          isPriority: true,
+          travelTip: "Plan for dinner en route",
+        },
+        {
+          id: 5,
+          name: "Arrive in Kochi",
+          time: "10:00 PM",
+          description: "Check-in and night rest",
+          image: "",
+          isPriority: true,
+        },
+      ],
+      summary: {
+        title: "Day 5 Highlights",
+        points: [
+          "Morning adventure activities",
+          "Chocolate factory visit",
+          "Long journey to Kochi",
+          "Night arrival in city",
+        ],
+      },
+      duration: "13 hours",
+      count: "3 main locations",
+    },
+    {
+      id: "day6",
+      number: 6,
+      date: "2025-05-05",
+      title: "Kochi Sightseeing",
+      subtitle: "Temples, Heritage & Markets",
+      description: "Explore the cultural heritage of Kochi",
+      image: "",
+      priorityLocations: [
+        { name: "Sree Poornathrayeesa Temple" },
+        { name: "Dutch Palace" },
+        { name: "Paradesi Synagogue" },
+        { name: "Marine Drive" },
+      ],
+      routePlan: "Temples → Heritage Sites → Markets → Marine Drive",
+      locations: [
+        {
+          id: 1,
+          name: "Sree Poornathrayeesa Temple",
+          time: "7:00 AM",
+          description: "Morning prayers",
+          image: "",
+          isPriority: true,
+        },
+        {
+          id: 2,
+          name: "Ernakulam Shiva Temple",
+          time: "8:00 AM",
+          description: "6 km, ~20 mins travel",
+          image: "",
+          isPriority: true,
+        },
+        {
+          id: 3,
+          name: "Hotel Return",
+          time: "9:00 AM",
+          description: "Saree change and checkout",
+          image: "",
+          isPriority: false,
+        },
+        {
+          id: 4,
+          name: "Dutch Palace, Mattancherry",
+          time: "10:30 AM",
+          description: "10 km, ~30 mins travel",
+          image: "",
+          isPriority: true,
+        },
+        {
+          id: 5,
+          name: "Paradesi Synagogue",
+          time: "12:30 PM",
+          description: "Note: Closed on Fridays & Saturdays",
+          image: "",
+          isPriority: true,
+        },
+        {
+          id: 6,
+          name: "Lunch Break",
+          time: "1:30 PM",
+          description: "Local Kerala cuisine",
+          image: "",
+          isPriority: false,
+        },
+        {
+          id: 7,
+          name: "Jew Town & GM Market",
+          time: "3:30 PM",
+          description: "Shopping and exploration",
+          image: "",
+          isPriority: true,
         },
         {
           id: 8,
-          name: "Government Botanical Garden",
-          time: "4:30 PM - Botanical Garden",
-          description: "Wind down your trip with a peaceful stroll through Munnar's beautiful botanical garden with well-maintained flowerbeds and lawns.",
-          image: "https://munnartourism.co.in/images//tourist-places/floriculture-centre-munnar/floriculture-centre-munnar-tourism-entry-ticket-price.jpg",
+          name: "Water Metro to Marine Drive",
+          time: "5:00 PM",
+          description: "30 mins round trip",
+          image: "",
           isPriority: true,
-          details: [
-            "Wide variety of flowers and plants",
-            "Beautiful in the evening light",
-            "Relaxing end to your Munnar adventure"
-          ],
-          coordinates: {
-            lat: 10.0893,
-            lng: 77.0596
-          }
         },
         {
           id: 9,
-          name: "Chokramudi Peak (Optional)",
-          time: "Optional - Chokramudi Peak",
-          description: "If you still have energy, consider visiting Chokramudi Peak for sunset views. Otherwise, enjoy the sunset from Pothamedu Viewpoint instead.",
+          name: "Rainbow Bridge & Broadway",
+          time: "6:00 PM",
+          description: "Evening market walk",
           image: "",
-          isPriority: false,
-          isOptional: true,
-          travelTip: "This is optional and only recommended if you're not too tired from the early morning start.",
-          coordinates: {
-            lat: 10.0621,
-            lng: 77.0465
-          }
-        }
+          isPriority: true,
+        },
+        {
+          id: 10,
+          name: "Return to Hotel",
+          time: "8:00 PM",
+          description: "Dinner, packing and rest",
+          image: "",
+          isPriority: true,
+        },
       ],
       summary: {
-        title: "Day 2 Summary",
+        title: "Day 6 Highlights",
         points: [
-          "Early sunrise experience at Kolukkumalai Peak",
-          "Western Munnar exploration with key scenic spots",
-          "Mix of natural views and garden exploration",
-          "Peaceful end to your Munnar adventure"
-        ]
+          "Morning temple visits",
+          "Historical sites exploration",
+          "Market shopping",
+          "Evening water ride",
+        ],
       },
-      duration: "Full day",
-      count: "5-6 locations"
-    }
-  ]
+      duration: "13-14 hours",
+      count: "8 main locations",
+    },
+    {
+      id: "day7",
+      number: 7,
+      date: "2025-05-06",
+      title: "Return Journey",
+      subtitle: "Train back to Madgaon",
+      description: "Early morning departure to Madgaon",
+      image: "",
+      priorityLocations: [
+        { name: "Ernakulam Junction Departure" },
+        { name: "Arrival at Madgaon" },
+      ],
+      routePlan: "Ernakulam → Madgaon",
+      locations: [
+        {
+          id: 1,
+          name: "Departure from Ernakulam",
+          time: "5:15 AM",
+          description: "Board Pune SF Express (22149)",
+          image: "",
+          isPriority: true,
+          travelTip: "Arrive 30 mins before departure",
+        },
+        {
+          id: 2,
+          name: "Arrival at Madgaon",
+          time: "5:00 PM",
+          description: "Journey completion",
+          image: "",
+          isPriority: true,
+        },
+      ],
+      summary: {
+        title: "Day 7 Summary",
+        points: [
+          "Early morning departure",
+          "12-hour train journey",
+          "Evening arrival at Madgaon",
+        ],
+      },
+      duration: "12 hours",
+      count: "2 main locations",
+    },
+  ],
 };
+
+// Food Recommendations
+export const foodSpots = [
+  {
+    area: "Alappuzha",
+    restaurants: [
+      {
+        name: "Thaff Restaurant",
+        specialty: "Karimeen Pollichathu",
+        budget: "₹200-300 per person",
+        location: "Near Boat Jetty",
+      },
+      {
+        name: "Harbours Restaurant",
+        specialty: "Kerala Fish Curry Meals",
+        budget: "₹150-200 per person",
+        location: "Beach Road",
+      },
+    ],
+  },
+  {
+    area: "Munnar",
+    restaurants: [
+      {
+        name: "Saravana Bhavan",
+        specialty: "South Indian Vegetarian",
+        budget: "₹100-150 per person",
+        location: "Town Center",
+      },
+      {
+        name: "Rapsy Restaurant",
+        specialty: "Kerala Parotta and Beef",
+        budget: "₹150-200 per person",
+        location: "Near Bus Stand",
+      },
+    ],
+  },
+];
 
 // Highlights data
 export const highlights = [
   {
     title: "Key Locations",
     icon: "location",
-    description: "Visit 10+ carefully selected spots to experience the best of Munnar"
+    description:
+      "Visit carefully selected spots across Kerala",
   },
   {
     title: "Optimized Timing",
     icon: "clock",
-    description: "Carefully planned to avoid crowds and get the best views"
+    description: "Carefully planned to avoid crowds and get the best views",
   },
   {
     title: "Balanced Experience",
     icon: "layout",
-    description: "Mix of scenery, activities and relaxation with flexibility built in"
-  }
+    description:
+      "Mix of spirituality, nature, adventure and culture with flexibility",
+  },
 ];
 
-// Map data
+// Map data for visualization
 export const mapLocations = {
   day1: [
-    { id: 1, name: "Top Station", coordinates: "77.2422° E, 10.1307° N", isPriority: true },
-    { id: 2, name: "Echo Point", coordinates: "77.1052° E, 10.0579° N", isPriority: true },
-    { id: 3, name: "Mattupetty Dam", coordinates: "77.1124° E, 10.1012° N", isPriority: true },
-    { id: 4, name: "Carmelagiri Elephant Park", coordinates: "77.0632° E, 10.0845° N (Optional)", isPriority: false },
-    { id: 5, name: "Tea Garden", coordinates: "77.0593° E, 10.0893° N", isPriority: true }
+    {
+      id: 1,
+      name: "Madgaon Junction",
+      coordinates: "73.9575° E, 15.2751° N",
+      isPriority: true,
+    },
+    {
+      id: 2,
+      name: "Ernakulam Junction",
+      coordinates: "76.2795° E, 9.9951° N",
+      isPriority: true,
+    },
+    {
+      id: 3,
+      name: "Alleppey",
+      coordinates: "76.3388° E, 9.4981° N",
+      isPriority: true,
+    },
   ],
   day2: [
-    { id: 1, name: "Kolukkumalai Peak", coordinates: "77.2483° E, 10.0176° N", isPriority: true },
-    { id: 2, name: "Gap Road Viewpoint", coordinates: "77.0365° E, 10.0812° N", isPriority: true },
-    { id: 3, name: "Ariyankal Dam", coordinates: "77.0193° E, 10.0931° N", isPriority: true },
-    { id: 4, name: "Lockhart Tea Garden", coordinates: "77.0419° E, 10.0773° N", isPriority: true },
-    { id: 5, name: "Botanical Garden", coordinates: "77.0596° E, 10.0893° N", isPriority: true },
-    { id: 6, name: "Chokramudi Peak", coordinates: "77.0465° E, 10.0621° N (Optional)", isPriority: false }
-  ]
+    {
+      id: 1,
+      name: "Mullakkal Temple",
+      coordinates: "76.3352° E, 9.4969° N",
+      isPriority: true,
+    },
+    {
+      id: 2,
+      name: "Ambalapuzha Temple",
+      coordinates: "76.3578° E, 9.3776° N",
+      isPriority: true,
+    },
+    {
+      id: 3,
+      name: "Mannarasala Temple",
+      coordinates: "76.3834° E, 9.3218° N",
+      isPriority: true,
+    },
+    {
+      id: 4,
+      name: "Backwater Sanctuary",
+      coordinates: "76.3446° E, 9.4981° N",
+      isPriority: true,
+    },
+  ],
 };
-
-// Driving tips for the map
-export const drivingTips = [
-  "Munnar roads can be winding - drive carefully and allow extra time",
-  "Morning fog is common - use headlights and drive slowly",
-  "Keep emergency contacts and your hotel address handy",
-  "Download offline maps before starting your journey"
-];

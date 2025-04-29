@@ -9,7 +9,7 @@
 
 // export default function Navigation({ activeTab, onTabChange }: NavigationProps) {
 //   const [scrollPosition, setScrollPosition] = useState(0);
-  
+
 //   const tabs = [
 //     { id: 'overview', icon: 'home', label: 'Overview' },
 //     { id: 'day1', icon: 'calendar', label: 'Day 1' },
@@ -20,17 +20,17 @@
 //     // { id: 'day6', icon: 'calendar', label: 'Day 6' },
 //     { id: 'map', icon: 'map', label: 'Map' }
 //   ];
-  
+
 //   const handleScroll = (direction: 'left' | 'right') => {
 //     const container = document.getElementById('tabs-container');
 //     if (container) {
 //       // Significantly reduced scroll amount from 200 to a much smaller value
 //       const scrollAmount = 100;
-      
-//       const newPosition = direction === 'left' 
+
+//       const newPosition = direction === 'left'
 //         ? Math.max(0, scrollPosition - scrollAmount)
 //         : scrollPosition + scrollAmount;
-      
+
 //       container.scrollTo({ left: newPosition, behavior: 'smooth' });
 //       setScrollPosition(newPosition);
 //     }
@@ -55,15 +55,15 @@
 //         {/* Mobile Navigation */}
 //         <div className="block md:hidden">
 //           <div className="flex items-center justify-between">
-//             <button 
+//             <button
 //               onClick={() => handleScroll('left')}
 //               className="p-3 text-white hover:bg-gray-800 focus:outline-none"
 //               aria-label="Scroll left"
 //             >
 //               <ChevronLeft size={20} />
 //             </button>
-            
-//             <div 
+
+//             <div
 //               id="tabs-container"
 //               className="flex overflow-x-auto scrollbar-hide py-1 scroll-smooth"
 //               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -74,8 +74,8 @@
 //                   data-tab={tab.id}
 //                   className={`
 //                     flex flex-col items-center justify-center min-w-16 px-3 py-2 mx-1 rounded-lg transition
-//                     ${activeTab === tab.id 
-//                       ? 'bg-green-600 text-white' 
+//                     ${activeTab === tab.id
+//                       ? 'bg-green-600 text-white'
 //                       : 'text-gray-300 hover:bg-gray-800'
 //                     }
 //                   `}
@@ -90,7 +90,7 @@
 //               ))}
 //             </div>
 
-//             <button 
+//             <button
 //               onClick={() => handleScroll('right')}
 //               className="p-3 text-white hover:bg-gray-800 focus:outline-none"
 //               aria-label="Scroll right"
@@ -99,7 +99,7 @@
 //             </button>
 //           </div>
 //         </div>
-        
+
 //         {/* Desktop Navigation */}
 //         <div className="hidden md:block">
 //           <div className="flex items-center justify-between">
@@ -110,8 +110,8 @@
 //                   data-tab={tab.id}
 //                   className={`
 //                     flex items-center py-4 px-4 font-medium transition relative flex-1
-//                     ${activeTab === tab.id 
-//                       ? 'text-white' 
+//                     ${activeTab === tab.id
+//                       ? 'text-white'
 //                       : 'text-gray-300 hover:text-white hover:bg-gray-800'
 //                     }
 //                   `}
@@ -126,7 +126,7 @@
 //                     <span>{tab.label}</span>
 //                   </div>
 //                   {activeTab === tab.id && (
-//                     <motion.div 
+//                     <motion.div
 //                       className="absolute bottom-0 left-0 right-0 h-1 bg-green-500"
 //                       layoutId="activeTabDesktop"
 //                       transition={{ type: 'spring', damping: 30, stiffness: 300 }}
@@ -139,10 +139,10 @@
 //         </div>
 
 //         {/* Title bar that shows on mobile when scrolling */}
-//         {/* <motion.div 
+//         {/* <motion.div
 //           className="absolute -bottom-7 left-0 right-0 text-center text-sm font-medium py-1 bg-gradient-to-r from-green-700 to-green-600 md:hidden"
 //           initial={{ opacity: 0, y: 10 }}
-//           animate={{ 
+//           animate={{
 //             opacity: activeTab !== 'overview' ? 1 : 0,
 //             y: activeTab !== 'overview' ? 0 : 10
 //           }}
@@ -155,31 +155,56 @@
 //   );
 // }
 
-
-
-
-
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Map, Menu, X } from 'lucide-react';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Home, Map, Menu, X } from "lucide-react";
 
 interface NavigationProps {
   activeTab: string;
-  onTabChange: (tabId: 'overview' | 'day1' | 'day2' | 'day3' | 'day4' | 'day5' | 'day6' | 'map') => void;
+  onTabChange: (
+    tabId:
+      | "overview"
+      | "day1"
+      | "day2"
+      | "day3"
+      | "day4"
+      | "day5"
+      | "day6"
+      | "map"
+      | "expenses",
+  ) => void;
 }
 
 export default function Navigation({ activeTab, onTabChange }: any) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   const tabs = [
-    { id: 'overview', icon: <Home size={18} />, label: 'Overview' },
-    { id: 'day1', label: 'Day 1' },
-    { id: 'day2', label: 'Day 2' },
-    // { id: 'day3', label: 'Day 3' },
-    // { id: 'day4', label: 'Day 4' },
-    // { id: 'day5', label: 'Day 5' },
-    // { id: 'day6', label: 'Day 6' },
-    { id: 'map', icon: <Map size={18} />, label: 'Map' }
+    { id: "overview", icon: <Home size={18} />, label: "Overview" },
+    { id: "day1", label: "Day 1" },
+    { id: "day2", label: "Day 2" },
+    { id: "day3", label: "Day 3" },
+    { id: "day4", label: "Day 4" },
+    { id: "day5", label: "Day 5" },
+    { id: "day6", label: "Day 6" },
+    { id: "map", icon: <Map size={18} />, label: "Map" },
+    {
+      id: "expenses",
+      icon: (
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        </svg>
+      ),
+      label: "Expenses",
+    },
   ];
 
   const toggleMobileMenu = () => {
@@ -196,22 +221,24 @@ export default function Navigation({ activeTab, onTabChange }: any) {
       {/* Fixed top bar for mobile */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-green-800 to-green-700 shadow-md">
         <div className="flex items-center justify-between px-4 h-14">
-          <button 
-            onClick={toggleMobileMenu} 
+          <button
+            onClick={toggleMobileMenu}
             className="p-2 text-white hover:bg-green-900 rounded-full focus:outline-none focus:ring-2 focus:ring-white"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-          
+
           <h1 className="text-white font-medium text-center flex-1">
-            {activeTab === 'overview' ? 'Your Munnar Adventure' : tabs.find(t => t.id === activeTab)?.label}
+            {activeTab === "overview"
+              ? "Your Munnar Adventure"
+              : tabs.find((t) => t.id === activeTab)?.label}
           </h1>
 
           <motion.button
             whileTap={{ scale: 0.95 }}
-            className={`p-2 rounded-full ${activeTab === 'map' ? 'bg-green-900' : 'text-white'}`}
-            onClick={() => handleTabChange('map')}
+            className={`p-2 rounded-full ${activeTab === "map" ? "bg-green-900" : "text-white"}`}
+            onClick={() => handleTabChange("map")}
             aria-label="View map"
           >
             <Map size={20} />
@@ -250,20 +277,26 @@ export default function Navigation({ activeTab, onTabChange }: any) {
                   whileTap={{ scale: 0.97 }}
                   className={`
                     flex items-center px-6 py-4 text-left transition border-l-4 
-                    ${activeTab === tab.id 
-                      ? 'border-green-600 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 font-medium' 
-                      : 'border-transparent hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                    ${
+                      activeTab === tab.id
+                        ? "border-green-600 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 font-medium"
+                        : "border-transparent hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
                     }
                   `}
                   onClick={() => handleTabChange(tab.id)}
                 >
                   <span className="w-6 mr-3 flex-shrink-0">
-                    {tab.icon || (tab.id.startsWith('day') && <span className="font-semibold">{tab.id.replace('day', '')}</span>)}
+                    {tab.icon ||
+                      (tab.id.startsWith("day") && (
+                        <span className="font-semibold">
+                          {tab.id.replace("day", "")}
+                        </span>
+                      ))}
                   </span>
                   {tab.label}
                 </motion.button>
               ))}
-              
+
               <div className="mt-auto p-4 text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
                 <p>© 2025 Munnar Adventures</p>
               </div>
@@ -281,9 +314,10 @@ export default function Navigation({ activeTab, onTabChange }: any) {
                 key={tab.id}
                 className={`
                   relative py-4 px-5 text-sm font-medium transition
-                  ${activeTab === tab.id 
-                    ? 'text-green-700 dark:text-green-400' 
-                    : 'text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400'
+                  ${
+                    activeTab === tab.id
+                      ? "text-green-700 dark:text-green-400"
+                      : "text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400"
                   }
                 `}
                 onClick={() => handleTabChange(tab.id)}
@@ -292,9 +326,9 @@ export default function Navigation({ activeTab, onTabChange }: any) {
                   {tab.icon && <span>{tab.icon}</span>}
                   <span>{tab.label}</span>
                 </div>
-                
+
                 {activeTab === tab.id && (
-                  <motion.div 
+                  <motion.div
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600"
                     layoutId="activeIndicator"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
